@@ -1232,6 +1232,126 @@ pointer-events:none;
 .showreel-content{
 transition:0.4s ease;
 }
+
+/* ===== MY WORK GALLERY ===== */
+.my-work-tabs{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:-24px 0 42px;
+}
+
+.work-tab-btn{
+  border:1px solid rgba(255,255,255,0.14);
+  background:linear-gradient(135deg, rgba(0,229,255,0.08), rgba(140,82,255,0.10), rgba(255,0,140,0.08));
+  color:#dbe7f6;
+  padding:12px 22px;
+  border-radius:999px;
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.35s ease;
+}
+
+.work-tab-btn:hover,
+.work-tab-btn.active{
+  color:#fff;
+  border-color:rgba(0,229,255,0.5);
+  transform:translateY(-3px);
+  box-shadow:0 14px 42px rgba(0,229,255,0.14), 0 0 26px rgba(255,0,140,0.08);
+}
+
+.work-panel{display:none;}
+.work-panel.active{display:block;}
+
+.media-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.media-card{
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  background:linear-gradient(145deg, rgba(0,229,255,0.08), rgba(140,82,255,0.10), rgba(255,0,140,0.07));
+  border:1px solid rgba(255,255,255,0.13);
+  box-shadow:0 28px 80px rgba(0,0,0,0.28);
+  transition:0.45s ease;
+  min-height:320px;
+}
+
+.media-card:hover{
+  transform:translateY(-10px) scale(1.015);
+  box-shadow:0 30px 85px rgba(0,229,255,0.16),0 0 45px rgba(255,0,140,0.10);
+}
+
+.image-card img{
+  width:100%;
+  height:100%;
+  min-height:320px;
+  object-fit:cover;
+  display:block;
+  transition:0.55s ease;
+}
+
+.image-card:hover img{transform:scale(1.055);}
+
+.media-overlay{
+  position:absolute;
+  inset:auto 0 0 0;
+  padding:56px 22px 22px;
+  background:linear-gradient(transparent, rgba(0,0,0,0.88));
+  pointer-events:none;
+}
+
+.media-overlay h3{
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.media-overlay p{
+  color:#cbd6e5;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.video-card{min-height:0;}
+
+.video-card video{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+
+.video-meta{
+  padding:18px 20px 20px;
+}
+
+.video-meta h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+
+.video-meta p{
+  color:#c5d2e5;
+  font-size:13px;
+  line-height:1.65;
+}
+
+@media(max-width:1000px){
+  .media-gallery{grid-template-columns:1fr 1fr;}
+}
+
+@media(max-width:650px){
+  .media-gallery{grid-template-columns:1fr;}
+  .media-card, .image-card img{min-height:280px;}
+}
+
 </style>
 </head>
 <body>
@@ -1476,76 +1596,93 @@ I adapt content for multiple platforms, refine videos using audience insights an
 <section id="work">
 <div class="container">
 <div class="section-heading reveal">
-<span>Projects</span>
-<h2>Editing styles & creative content work</h2>
+<span>Portfolio</span>
+<h2>My Work</h2>
 </div>
 
-<div class="work-grid">
-
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Commercial Editing</h3>
-<p>High-quality commercial edits, promotional campaigns and brand advertisements designed with cinematic pacing, clean transitions and strong audience engagement.</p>
-</div>
+<div class="my-work-tabs reveal">
+<button class="work-tab-btn active" data-work-tab="images">Images</button>
+<button class="work-tab-btn" data-work-tab="videos">Videos</button>
 </div>
 
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Motion Graphics</h3>
-<p>Creative motion graphics, animated typography, logo reveals and visually dynamic compositions for digital marketing and social campaigns.</p>
-</div>
+<!-- IMAGE WORK -->
+<div class="work-panel active" id="images-panel">
+<div class="media-gallery">
+
+<!-- Replace image1.jpg, image2.jpg... with your own image file names from the same folder -->
+<div class="media-card image-card reveal">
+<img src="./image1.jpg" alt="Creative Design 1">
+<div class="media-overlay"><h3>Creative Design 01</h3><p>Replace this image and text with your own project.</p></div>
 </div>
 
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Social Media Reels</h3>
-<p>Fast-paced Instagram reels, YouTube Shorts and viral-style edits with speed ramps, cinematic transitions and modern storytelling.</p>
-</div>
+<div class="media-card image-card reveal">
+<img src="./image2.jpg" alt="Creative Design 2">
+<div class="media-overlay"><h3>Creative Design 02</h3><p>Social media, thumbnail, poster or brand design.</p></div>
 </div>
 
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Podcast Editing</h3>
-<p>Professional podcast editing with smooth cuts, sound cleanup, engaging camera switching and platform-ready visual formatting.</p>
-</div>
+<div class="media-card image-card reveal">
+<img src="./image3.jpg" alt="Creative Design 3">
+<div class="media-overlay"><h3>Creative Design 03</h3><p>Replace this image with any portfolio artwork.</p></div>
 </div>
 
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>News Channel Live Editing</h3>
-<p>Live editing workflows, lower thirds, quick transitions, breaking-news visual flow and real-time editing support for media content.</p>
-</div>
+<div class="media-card image-card reveal">
+<img src="./image4.jpg" alt="Creative Design 4">
+<div class="media-overlay"><h3>Creative Design 04</h3><p>Add as many cards as you need by copying this block.</p></div>
 </div>
 
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Cinematic Storytelling</h3>
-<p>Emotion-driven cinematic editing with professional pacing, sound layering, dramatic transitions and immersive visual storytelling.</p>
-</div>
+<div class="media-card image-card reveal">
+<img src="./image5.jpg" alt="Creative Design 5">
+<div class="media-overlay"><h3>Creative Design 05</h3><p>Your image stays in the same root folder as this HTML file.</p></div>
 </div>
 
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Tutorial & Educational Videos</h3>
-<p>Clear and engaging tutorial edits with animated highlights, smooth cuts and viewer-friendly visual structure.</p>
-</div>
-</div>
-
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Advertising & Motion Ads</h3>
-<p>Creative advertising videos with motion graphics, text animations, cinematic hooks and visually impactful storytelling.</p>
-</div>
-</div>
-
-<div class="work-card reveal" style="background-image:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80');">
-<div class="work-content">
-<h3>Event & Videography Edits</h3>
-<p>Professional event highlights, cinematic videography edits and storytelling-focused sequences optimized for modern platforms.</p>
-</div>
+<div class="media-card image-card reveal">
+<img src="./image6.jpg" alt="Creative Design 6">
+<div class="media-overlay"><h3>Creative Design 06</h3><p>Perfect for graphics, posters, branding and thumbnails.</p></div>
 </div>
 
 </div>
+</div>
+
+<!-- VIDEO WORK -->
+<div class="work-panel" id="videos-panel">
+<div class="media-gallery">
+
+<!-- Replace work1.mp4, work2.mp4... with your own video file names from the same folder -->
+<div class="media-card video-card reveal">
+<video controls preload="metadata">
+<source src="./work1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<div class="video-meta"><h3>Video Project 01</h3><p>Reel, commercial edit, motion graphics or cinematic video.</p></div>
+</div>
+
+<div class="media-card video-card reveal">
+<video controls preload="metadata">
+<source src="./work2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<div class="video-meta"><h3>Video Project 02</h3><p>Replace this file with your own video in the root folder.</p></div>
+</div>
+
+<div class="media-card video-card reveal">
+<video controls preload="metadata">
+<source src="./work3.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<div class="video-meta"><h3>Video Project 03</h3><p>Copy this card if you want to show more videos.</p></div>
+</div>
+
+<div class="media-card video-card reveal">
+<video controls preload="metadata">
+<source src="./work4.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<div class="video-meta"><h3>Video Project 04</h3><p>Works with MP4 files placed beside this HTML file.</p></div>
+</div>
+
+</div>
+</div>
+
 </div>
 </section>
 
@@ -1680,6 +1817,28 @@ video.addEventListener('ended',()=>{
 showreelBox.classList.remove('video-playing');
 });
 }
+
+// My Work tabs: Images / Videos
+const workTabButtons = document.querySelectorAll('.work-tab-btn');
+const workPanels = document.querySelectorAll('.work-panel');
+
+workTabButtons.forEach((button)=>{
+  button.addEventListener('click',()=>{
+    workTabButtons.forEach(btn=>btn.classList.remove('active'));
+    workPanels.forEach(panel=>panel.classList.remove('active'));
+
+    button.classList.add('active');
+    const target = button.dataset.workTab;
+    document.getElementById(target + '-panel').classList.add('active');
+
+    // Pause videos when switching tabs
+    document.querySelectorAll('#videos-panel video').forEach(v=>v.pause());
+
+    // Reveal elements in the newly opened tab
+    revealOnScroll();
+  });
+});
+
 </script>
 
 </body>
